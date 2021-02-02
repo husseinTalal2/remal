@@ -1,0 +1,13 @@
+
+.header {
+    /* background: #fff url("../imgs/bg.jpg") no-repeat fixed center; */
+    
+    background-image: url("../imgs/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.7);
+}

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Navbar from "../Components/Navbar/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 
 export default function Home() {
     return (

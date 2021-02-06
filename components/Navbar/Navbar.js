@@ -10,8 +10,8 @@ function Navbar() {
     };
     return (
         <>
-            <header className="flex md:flex-col justify-between md:justify-center items-center text-white bg-black bg-opacity-30">
-                <div className="md:w-4/5 h-24 flex justify-between items-center md:ml-0 ml-5">
+            <header className="flex md:flex-col justify-between md:justify-center items-center text-white bg-black">
+                <div className="md:w-4/5 h-18 flex justify-between items-center md:ml-0 ml-5">
                     <div className="logo">
                         <Link href="/">
                             <a>

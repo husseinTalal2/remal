@@ -57,6 +57,12 @@ function Navbar() {
                                 </a>
                             </ActiveLink>
                             <span>|</span>
+                            <ActiveLink activeClassName="active" href="/gallery">
+                                <a className="nav-item mx-2 hover:text-gray-700">
+                                    GALLERY
+                                </a>
+                            </ActiveLink>
+                            <span>|</span>
                             <ActiveLink
                                 activeClassName="active"
                                 href="/contact"

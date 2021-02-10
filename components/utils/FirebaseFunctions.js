@@ -1,14 +1,7 @@
-import { db, auth, storage } from "./Firebase";
+import { db, auth, storage } from "../../firebase";
 import { firestore } from "firebase";
 
-export const firebasefunctions = {
-    addPost: addPost,
-    addMember: addMember,
-    getPosts: getPosts,
-    getMembers: getMembers,
-    getMember: getMember,
-    getPost: getPost,
-};
+
 
 const addPost = (post) => {
     return db
@@ -84,4 +77,17 @@ const getMember = async (id) => {
         .get()
         .then((data) => (member = data.data()));
     return member;
+};
+
+export const firebasefunctions = {
+    addPost: addPost,
+    addMember: addMember,
+    getPosts: getPosts,
+    getMembers: getMembers,
+    getMember: getMember,
+    getPost: getPost,
+    signUp: (email, password) =>
+        firebase.auth().createUserWithEmailAndPassword(email, password),
+    signIn: (email, password) =>
+        firebase.auth().signInWithEmailAndPassword(email, password),
 };

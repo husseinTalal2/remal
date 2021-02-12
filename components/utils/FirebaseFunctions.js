@@ -1,38 +1,34 @@
 import { db, auth, storage } from "../../firebase";
 import { firestore } from "firebase";
 
-
-
-const addPost = (post) => {
-    return db
-        .collection("posts")
-        .doc()
-        .set(post, { merge: true })
-        .then(() => {
-            alert("Your appointment is recorded successfully");
-        })
-        .catch((err) => {
-            alert(err.message);
-        });
+const addPost = async (post) => {
+    try {
+        await db.collection("posts").doc().set(post, { merge: true });
+        alert("Your post added successfully");
+    } catch (err) {
+        alert(err.message);
+    }
 };
 
-const addMember = (member) => {
+const addMember = async (member, img) => {
     let doc;
     db.collection("members")
-        .doc()
-        .set(post, { merge: true })
+        .add(member)
         .then((docRef) => {
             doc = docRef;
-            alert("Your appointment is recorded successfully");
+            console.log(doc);
+            const storageRef = storage.ref("members/" + doc.id);
+            const upload = storageRef.put(img);
+            upload.then(function complete() {
+                storageRef.getDownloadURL().then((url) => {
+                    docRef.set({ img: url }, { merge: true });
+                });
+            });
+            alert("member added successfully");
         })
         .catch((err) => {
             alert(err.message);
         });
-    const storageRef = storage.ref("members/" + doc.id);
-    const upload = storageRef.put(member.img);
-    upload.on("state_changed", function complete() {
-        console.log("uploaded");
-    });
 };
 
 const getPosts = async () => {
@@ -79,7 +75,7 @@ const getMember = async (id) => {
     return member;
 };
 
-export const firebasefunctions = {
+export const firebaseFunctions = {
     addPost: addPost,
     addMember: addMember,
     getPosts: getPosts,

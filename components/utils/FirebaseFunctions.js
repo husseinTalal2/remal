@@ -1,13 +1,26 @@
 import { db, auth, storage } from "../../firebase";
 import { firestore } from "firebase";
-
-const addPost = async (post) => {
-    try {
-        await db.collection("posts").doc().set(post, { merge: true });
-        alert("Your post added successfully");
-    } catch (err) {
-        alert(err.message);
-    }
+const randomNum = () => {
+    return Math.random() * 100000;
+};
+const addPost = (post, imgs) => {
+    imgs = Object.values(imgs);
+    db.collection("posts")
+        .add(post)
+        .then((docRef) => {
+            imgs.forEach((img) => {
+                const storageRef = storage
+                    .ref()
+                    .child("posts/" + docRef.id + "/" + randomNum());
+                const upload = storageRef.put(img);
+                upload.then(function complete() {
+                    alert("post added successfully");
+                });
+            });
+        })
+        .catch((err) => {
+            alert(err.message);
+        });
 };
 
 const addMember = async (member, img) => {

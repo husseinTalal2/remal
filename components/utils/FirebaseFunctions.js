@@ -8,15 +8,14 @@ const addPost = (post, imgs) => {
     db.collection("posts")
         .add(post)
         .then((docRef) => {
+            docRef.set({ id: docRef.id }, { merge: true });
             imgs.forEach((img) => {
                 const storageRef = storage
                     .ref()
                     .child("posts/" + docRef.id + "/" + randomNum());
-                const upload = storageRef.put(img);
-                upload.then(function complete() {
-                    alert("post added successfully");
-                });
+                storageRef.put(img);
             });
+            alert("post added successfully");
         })
         .catch((err) => {
             alert(err.message);

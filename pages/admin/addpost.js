@@ -25,7 +25,7 @@ function addpost() {
                     <input
                         type="text"
                         placeholder="Title"
-                        name="Title"
+                        name="title"
                         ref={register({ required: true })}
                         className="p-5 my-5 shadow-md w-full"
                     />

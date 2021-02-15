@@ -22,24 +22,31 @@ function addmember() {
                     <input
                         type="text"
                         placeholder="Name"
-                        name="Name"
+                        name="name"
+                        ref={register({ required: true, maxLength: 80 })}
+                        className="p-5 my-5 shadow-md w-full"
+                    />
+                    <input
+                        type="text"
+                        placeholder="Position"
+                        name="position"
                         ref={register({ required: true, maxLength: 80 })}
                         className="p-5 my-5 shadow-md w-full"
                     />
                     <textarea
-                        name="Bio"
+                        name="bio"
                         ref={register({ required: true })}
                         placeholder="Bio"
                         className="p-5 my-5 shadow-md w-full"
                     />
                     <textarea
-                        name="Experience"
+                        name="experience"
                         ref={register({ required: true })}
                         className="p-5 my-5 shadow-md w-full"
                         placeholder="Experience"
                     />
                     <textarea
-                        name="Education"
+                        name="education"
                         ref={register({ required: true })}
                         className="p-5 my-5 shadow-md w-full"
                         placeholder="Education"

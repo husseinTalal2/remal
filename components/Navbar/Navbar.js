@@ -11,20 +11,20 @@ function Navbar() {
     return (
         <>
             <header className="flex md:flex-col justify-between md:justify-center items-center text-white bg-black">
-                <div className="md:w-4/5 h-18 flex justify-between items-center md:ml-0 ml-5">
+                <div className="w-full px-40 h-18 flex justify-between items-center md:ml-0 ml-5 bg-white">
                     <div className="logo">
                         <Link href="/">
                             <a>
                                 <img
-                                    width="50"
-                                    src="https://res.cloudinary.com/dest-life-storage/image/upload/v1609838147/LOGOwithoutText_ys5kjm.svg"
+                                    width="70"
+                                    src="https://firebasestorage.googleapis.com/v0/b/alrimal-aldhahabiya.appspot.com/o/%D8%A7%D9%84%D8%B1%D9%85%D8%A7%D9%84_%D8%A7%D9%84%D8%B0%D9%87%D8%A8%D9%8A%D8%A9-1-removebg-preview.png?alt=media&token=1ab5ade2-c6ae-4c0e-b6b6-fe3833a28300"
                                     alt="logo"
                                 />
                             </a>
                         </Link>
                     </div>
                     <div className="hidden md:flex">
-                        <Phone /> <span className="ml-5">+964 (770) 000-0000</span>
+                        <Phone className="text-black" /> <a href="tel:+9647700000000" className="ml-5 text-black">+964 (0) 770 000-0000</a>
                     </div>
                 </div>
                 <nav className="md:w-4/5 h-20 flex justify-between items-center">

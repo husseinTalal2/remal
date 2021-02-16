@@ -3,30 +3,18 @@ import Link from "next/link";
 import Footer from "../components/Footer/Footer";
 import Navbar from "../components/Navbar/Navbar";
 import ProjectCard from "../components/ui/ProjectCard";
-const projects = [
-    {
-        img: "https://dummyimage.com/1203x503",
-        title: "Shooting Stars",
-        excerpt:
-            "Swag shoindxgoitch literally meditation subway tile tumblrcold-pressed. Gastropub street art beard dreamcatcher neutra,ethical XOXO lumbersexual.",
-        link: "/",
-    },
-    {
-        img: "https://dummyimage.com/1203x503",
-        title: "Shooting Stars",
-        excerpt:
-            "Swag shoindxgoitch literally meditation subway tile tumblrcold-pressed. Gastropub street art beard dreamcatcher neutra,ethical XOXO lumbersexual.",
-        link: "/",
-    },
-    {
-        img: "https://dummyimage.com/1203x503",
-        title: "Shooting Stars",
-        excerpt:
-            "Swag shoindxgoitch literally meditation subway tile tumblrcold-pressed. Gastropub street art beard dreamcatcher neutra,ethical XOXO lumbersexual.",
-        link: "/",
-    },
-];
-export default function Home() {
+import { firebaseFunctions } from "../components/utils/FirebaseFunctions";
+
+export const getServerSideProps = async () => {
+    const projects = await firebaseFunctions.getPosts().then(data => data);
+    return {
+        props: {
+            projects: projects,
+        },
+    };
+};
+
+export default function Home({projects}) {
     return (
         <>
             <div className="header h-screen">
@@ -63,7 +51,7 @@ export default function Home() {
                             <img
                                 className="object-cover object-center rounded"
                                 alt="hero"
-                                src="https://dummyimage.com/720x600"
+                                src="https://firebasestorage.googleapis.com/v0/b/alrimal-aldhahabiya.appspot.com/o/%D8%A7%D9%84%D8%B1%D9%85%D8%A7%D9%84_%D8%A7%D9%84%D8%B0%D9%87%D8%A8%D9%8A%D8%A9-1-removebg-preview.png?alt=media&token=1ab5ade2-c6ae-4c0e-b6b6-fe3833a28300"
                             />
                         </div>
                     </div>
@@ -169,7 +157,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-                            {projects.map(project => <ProjectCard project={project} />)}
+                            {projects.slice(0, 3).map(project => <ProjectCard project={project} />)}
                             
                         </div>
                     </div>

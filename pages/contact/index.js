@@ -1,8 +1,21 @@
 import React from "react";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
+import emailjs from 'emailjs-com';
 
 function index() {
+    const sendEmail = (e) => {
+        e.preventDefault();
+    
+        emailjs.sendForm('service_mxydsfb', 'template_3d1cyn5', e.target, 'user_5X6CajhDjKCwrtOu5WaYy')
+          .then((result) => {
+              alert("your message sent successfully");
+          }, (error) => {
+              alert(error.text)
+              console.log(error.text);
+          });
+    }
+    
     return (
         <>
             <Navbar />
@@ -19,7 +32,7 @@ function index() {
                             </p>
                         </div>
                         <div className="lg:w-1/2 md:w-2/3 mx-auto">
-                            <div className="flex flex-wrap -m-2">
+                            <form className="flex flex-wrap -m-2" onSubmit={sendEmail}>
                                 <div className="p-2 w-1/2">
                                     <div className="relative">
                                         <label
@@ -68,13 +81,13 @@ function index() {
                                     </div>
                                 </div>
                                 <div className="p-2 w-full">
-                                    <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                                    <button type="submit" className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                                         SEND
                                     </button>
                                 </div>
                                 <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-                                    <a className="text-indigo-500">
-                                        example@email.com
+                                    <a href="mailto:info@alrimal-aldhayabiya.com" className="text-indigo-500">
+                                      info@alrimal-aldhayabiya.com  
                                     </a>
                                     <p className="leading-normal my-5">
                                         49 Smith St.
@@ -141,7 +154,7 @@ function index() {
                                         </a>
                                     </span>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </section>

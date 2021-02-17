@@ -35,15 +35,15 @@ function post({ post }) {
         <>
             <Navbar />
             <main>
-                <div className="mx-36 my-24">
+                <div className="md:mx-36 mx-8 my-24">
                     <div className="imgs flex flex-wrap justify-evenly items-center">
                         {!!imgs
                             ? imgs.map((img) => {
                                   return (
-                                      <div className="w-4/12 max-h-64 overflow-hidden">
+                                      <div className="md:w-4/12 w-3/6 max-h-64 overflow-hidden">
                                           <img
                                               src={img}
-                                              className="object-fill p-4"
+                                              className="object-fill px-4"
                                           />
                                       </div>
                                   );

@@ -29,8 +29,8 @@ function id({member}) {
         <>
             <Navbar />
             <section>
-                <div className="container flex md:px-36 my-16 justify-center ">
-                    <div className="md:w-1/5 flex flex-col items-center">
+                <div className="container flex md:flex-row flex-col md:px-36 my-16 justify-center ">
+                    <div className="md:w-1/5 w-full flex flex-col items-center">
                         <div className="rounded-full h-40 w-40 flex items-center justify-center overflow-hidden mt-10">
                             <img src={member.img} />
                         </div>
@@ -38,10 +38,10 @@ function id({member}) {
                             <h1 className="text-3xl font-bold mt-4">
                                 {member.name}
                             </h1>
-                            <p className="text-xl mt-2">{member.position}</p>
+                            <p className="text-xl mt-2 text-center md:text-left">{member.position}</p>
                         </div>
                     </div>
-                    <div className="md:w-4/5 flex flex-col">
+                    <div className="md:w-4/5 w-full flex flex-col mx-8">
                         <div className="mt-16">
                             <h1 className="text-3xl font-bold mb-4">bio</h1>
                             <hr />

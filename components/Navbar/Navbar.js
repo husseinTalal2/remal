@@ -10,7 +10,7 @@ function Navbar() {
     };
     return (
         <>
-            <header className="flex md:flex-col justify-between md:justify-center items-center bg-white">
+            <header className="flex md:flex-col justify-between md:justify-center items-center bg-white shadow-sm">
                 <nav className="md:w-4/5 w-full h-20 flex justify-between items-center">
                     <div className="w-full flex items-center justify-between">
                         <img className="ml-5" width="70" src="https://firebasestorage.googleapis.com/v0/b/alrimal-aldhahabiya.appspot.com/o/%D8%A7%D9%84%D8%B1%D9%85%D8%A7%D9%84_%D8%A7%D9%84%D8%B0%D9%87%D8%A8%D9%8A%D8%A9-1-removebg-preview.png?alt=media&token=1ab5ade2-c6ae-4c0e-b6b6-fe3833a28300" />

@@ -32,3 +32,11 @@ body{
 #imgs-input {
   display: none;
 }
+
+.submit-btn {
+  background-color: #3F2F5A;
+  color: white;
+}
+.submit-btn:hover {
+  background-color: #A374C5;
+}

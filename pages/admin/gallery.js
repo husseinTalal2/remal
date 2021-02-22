@@ -37,7 +37,12 @@ function gallery() {
                             Select Images
                         </label>
                         
-                        <button type="submit" className="bg-blue-400 mt-8 py-4 rounded">Submit </button>
+                        <button
+                        type="submit"
+                        className="submit-btn flex justify-center mt-5 items-center shadow px-8 py-4 text-white rounded"
+                    >
+                        SUBMIT
+                    </button>
                     </form>
                 </div>
             </div>

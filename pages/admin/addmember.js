@@ -19,6 +19,7 @@ function addmember() {
                     onSubmit={handleSubmit(onSubmit)}
                     className="flex flex-col justify-center items-center w-full mt-16"
                 >
+                    <label className="my-4 text-2xl">English</label>
                     <input
                         type="text"
                         placeholder="Name"
@@ -52,16 +53,59 @@ function addmember() {
                         placeholder="Education"
                     />
 
+                    <label className="mb-4 mt-8 text-2xl">Arabic</label>
                     <input
-                        type="file"
-                        name="imgs"
-                        className="p-5 my-5"
-                        required
-                        onChange={(e) => {
-                            setImg(e.target.files[0]);
-                        }}
+                        type="text"
+                        placeholder="Name"
+                        name="arName"
+                        ref={register({ required: true, maxLength: 80 })}
+                        className="p-5 my-5 shadow-md w-full"
                     />
-                    <button type="submit"> Submit </button>
+                    <input
+                        type="text"
+                        placeholder="Position"
+                        name="arPosition"
+                        ref={register({ required: true, maxLength: 80 })}
+                        className="p-5 my-5 shadow-md w-full"
+                    />
+                    <textarea
+                        name="arBio"
+                        ref={register({ required: true })}
+                        placeholder="Bio"
+                        className="p-5 my-5 shadow-md w-full"
+                    />
+                    <textarea
+                        name="arExperience"
+                        ref={register({ required: true })}
+                        className="p-5 my-5 shadow-md w-full"
+                        placeholder="Experience"
+                    />
+                    <textarea
+                        name="arEducation"
+                        ref={register({ required: true })}
+                        className="p-5 my-5 shadow-md w-full"
+                        placeholder="Education"
+                    />
+                    <label className="custom-file-input bg-black shadow text-white px-8 py-4 my-4 rounded cursor-pointer">
+                        <input
+                            type="file"
+                            name="imgs"
+                            className="p-5 my-5"
+                            required
+                            onChange={(e) => {
+                                setImg(e.target.files[0]);
+                            }}
+                            id="imgs-input"
+                            className="p-5 my-5"
+                        />
+                        Select image
+                    </label>
+                    <button
+                        type="submit"
+                        className="submit-btn flex items-center shadow px-8 py-4 text-white rounded"
+                    >
+                        SUBMIT
+                    </button>
                 </form>
             </div>
             <Footer />
